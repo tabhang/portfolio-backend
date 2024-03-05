@@ -1,9 +1,10 @@
-from flask import Flask, request, Response, jsonify
-import requests
-from flask_cors import CORS
-from flask_mail import Mail, Message  # Import Flask-Mail
 import os
+
+import requests
 from dotenv import load_dotenv
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+from flask_mail import Mail, Message
 
 load_dotenv()
 

@@ -1,6 +1,6 @@
 steps:
   # Docker Build
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-builders/docker:latest'
     args: ['build',
            '-t',
            'us-central1-docker.pkg.dev/scientific-host-415721/cloud-run-source-deploy/my-app:latest',

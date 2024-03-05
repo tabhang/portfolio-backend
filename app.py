@@ -44,7 +44,7 @@ def verify():
 
         print('Response from target API:', response_data)
 
-        if not response_data['success']:
+        if response_data['success']:
             form_data = request.json['formData']
 
             mail_subject = f"[Contact-Form] Message from {form_data['name']}"
@@ -69,7 +69,7 @@ def verify():
 
 @app.route('/')
 def index():
-    return 'Flask on Vercel'
+    return 'Flask on google cloud run'
 
 
 if __name__ == '__main__':

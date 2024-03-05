@@ -11,16 +11,18 @@ steps:
     args: ['push',  'us-central1-docker.pkg.dev/scientific-host-415721/p-backend-registry/my-app:${SHORT_SHA}']
 
   # Deploy container image to Cloud Run
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: gcloud
-    args:
-      - 'run'
-      - 'deploy'
-      - '$_SERVICE_NAME'
-      - '--image'
-      - 'us-central1-docker.pkg.dev/$PROJECT_ID/$_SERVICE_NAME:SHORT_SHA'
-      - '--region'
-      - '$_DEPLOY_REGION'
+  - name: 'gcr.io/cloud-builders/cloud-run'
+    args: ['deploy',
+           '--image',
+           'us-central1-docker.pkg.dev/scientific-host-415721/p-backend-registry/my-app:${SHORT_SHA}',
+           '--platform',
+           'gcr.io/cloud-run/runtime-v2',
+           '--region',
+           'us-central1',
+           '--allow-unauthenticated',  # Replace with appropriate authentication strategy
+           '--service',
+           'my-app']
+
 # Store images in Google Artifact Registry
-images:
-  - us-central1-docker.pkg.dev/scientific-host-415721/p-backend-registry/my-app:${SHORT_SHA}
+#images:
+#  - us-central1-docker.pkg.dev/scientific-host-415721/p-backend-registry/my-app:${SHORT_SHA}

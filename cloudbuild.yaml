@@ -1,11 +1,10 @@
 steps:
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
-    args: [
-            'build',
-            '-t',
-            'us-central1-docker.pkg.dev/scientific-host-415721/p-backend-registry/my-app:${SHORT_SHA}'
-          ]
+    args: ['build',
+           '-t',
+           'us-central1-docker.pkg.dev/scientific-host-415721/p-backend-registry/my-app:${SHORT_SHA}',
+           '.']
 
   # Docker push to Google Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'

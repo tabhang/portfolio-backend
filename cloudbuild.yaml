@@ -3,19 +3,19 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build',
            '-t',
-           'us-central1-docker.pkg.dev/scientific-host-415721/cloud-run-source-deploy/my-app:$SHORT_SHA',
+           'us-central1-docker.pkg.dev/scientific-host-415721/cloud-run-source-deploy/my-app:latest',
            '.']
 
   # Docker push to Google Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push',  'us-central1-docker.pkg.dev/scientific-host-415721/cloud-run-source-deploy/my-app:$SHORT_SHA']
+    args: ['push',  'us-central1-docker.pkg.dev/scientific-host-415721/cloud-run-source-deploy/my-app:latest']
 
   # Deploy container image to Cloud Run
   - name: 'gcr.io/cloud-builders/cloud-run'
     args: ['run',
            'deploy',
            '--image',
-           'us-central1-docker.pkg.dev/scientific-host-415721/cloud-run-source-deploy/my-app:$SHORT_SHA',
+           'us-central1-docker.pkg.dev/scientific-host-415721/cloud-run-source-deploy/my-app:latest',
            '--platform',
            'gcr.io/cloud-run/runtime-v2',
            '--region',
@@ -25,4 +25,4 @@ options:
   logging: CLOUD_LOGGING_ONLY
 
 # Store images in Google Artifact Registry
-images: [us-central1-docker.pkg.dev/scientific-host-415721/cloud-run-source-deploy/my-app:$SHORT_SHA]
+images: [us-central1-docker.pkg.dev/scientific-host-415721/cloud-run-source-deploy/my-app:latest]

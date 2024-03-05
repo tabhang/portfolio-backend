@@ -1,6 +1,6 @@
 # Getting the python 3.9 image
 # Optimization: can consider using a smaller more restricted image
-FROM python:3.9
+FROM python:3.11
 
 # Copying my app to the image
 ENV APP_HOME /app

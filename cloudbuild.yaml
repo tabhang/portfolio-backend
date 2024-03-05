@@ -26,3 +26,5 @@ steps:
 # Store images in Google Artifact Registry
 #images:
 #  - us-central1-docker.pkg.dev/scientific-host-415721/p-backend-registry/my-app:${SHORT_SHA}
+
+logging: CLOUD_LOGGING_ONLY

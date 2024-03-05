@@ -12,16 +12,14 @@ steps:
 
   # Deploy container image to Cloud Run
   - name: 'gcr.io/cloud-builders/cloud-run'
-    args: ['deploy',
+    args: ['run',
+           'deploy',
            '--image',
            'us-central1-docker.pkg.dev/scientific-host-415721/cloud-run-source-deploy/my-app:${SHORT_SHA}',
            '--platform',
            'gcr.io/cloud-run/runtime-v2',
            '--region',
-           'us-central1',
-           '--allow-unauthenticated',  # Replace with appropriate authentication strategy
-           '--service',
-           'my-app']
+           'us-central1']
 
 options:
   logging: CLOUD_LOGGING_ONLY

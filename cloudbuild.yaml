@@ -18,7 +18,7 @@ steps:
       - 'deploy'
       - '$_SERVICE_NAME'
       - '--image'
-      - 'gcr.io/$PROJECT_ID/$_SERVICE_NAME:SHORT_SHA'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/$_SERVICE_NAME:SHORT_SHA'
       - '--region'
       - '$_DEPLOY_REGION'
 # Store images in Google Artifact Registry

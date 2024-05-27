@@ -13,7 +13,7 @@ email_password = os.environ.get('EMAIL_PASSWORD')
 recaptcha_api_key = os.environ.get('RECAPTCHA_API_KEY')
 
 target_api_url = 'https://www.google.com/recaptcha/api/siteverify'
-allowed_origins = ['http://localhost:3000', 'https://tabhang.github.io']
+allowed_origins = ['http://localhost:3000', 'https://tabhang.github.io', 'https://tejasa.dev']
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": allowed_origins}})
